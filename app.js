@@ -1,8 +1,10 @@
 var express = require('express')
-var app = express()
+var path = require('path');
 var mongoose = require('mongoose');
+var app = express()
 mongoose.connect('mongodb://localhost/justrock');
 global.Model = require('./models')();
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.use('/', require('./routes/landing.route'));
