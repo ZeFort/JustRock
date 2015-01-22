@@ -10,6 +10,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./routes/landing.route'));
 app.use('/admin', require('./routes/admin.route'));
 app.use('/player', require('./routes/player.route'));
+app.use('/addSong', require('./routes/addSong.route'));
 
 
 var server = app.listen(3000, function () {
