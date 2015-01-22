@@ -16,7 +16,7 @@ var SongSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
-    path: {
+    song: {
         type: String,
         default: ''
     }
