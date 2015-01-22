@@ -1,5 +1,4 @@
-var app = angular.module("app", ['ngRoute'])
-		.config(function($routeProvider){
+var app = angular.module("app", ['ngRoute']).config(function($routeProvider){
 			$routeProvider
 				.when('/',{
 					templateUrl:'../template/index.html'
@@ -10,14 +9,14 @@ var app = angular.module("app", ['ngRoute'])
 				.when('/addSong',{
 					templateUrl: '../template/addsong.html'
 				})
-		})
-
-
-app.controller("createController",function($scope, $http){
-	data = {
+}).controller("createController",function($scope, $http){
+	var data = {
 		name: "Danik"
-	}
+	};
+
 	$http.post('/addSong/l', data).success(function(response) {
-  });
+		alert(JSON.stringify(response));
+  	});
+
 	$scope.name = "blabla";
 });
