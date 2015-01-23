@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/landing.route'));
 app.use('/admin', require('./routes/admin.route'));
-app.use('/addSong', require('./routes/addSong.route'));
+app.use('/songs', require('./routes/songs.route'));
 app.use('/music', require('./routes/music.route'));
 
 

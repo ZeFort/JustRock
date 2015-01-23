@@ -1,15 +1,14 @@
 <div class="bg">
-<div class="container" ng-controller="createController">
+  <div class="container" ng-controller="SongCreateController">
 
       <form class="form-signin" role="form">
         <h2 class="form-signin-heading text-center">Please enter info</h2>
-        <input type="text" class="form-control" id="Artist" placeholder="Artist" required="" autofocus="">
-        <input type="text" class="form-control" id="Album" placeholder="Album" required="" autofocus="">
-        <input type="text" class="form-control" id="Name" placeholder="Name" required="" autofocus="" value="{{name}}">
-        <input type="text" class="form-control" id="Cover" placeholder="Cover" required="" autofocus="">
-        <input type="file" class="form-control" id="File" required="" autofocus="">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+        <input type="text" class="form-control" id="Artist" placeholder="Artist" required="" ng-model="artist" />
+        <input type="text" class="form-control" id="Album" placeholder="Album" required="" ng-model="album" />
+        <input type="text" class="form-control" id="Name" placeholder="Name" required="" ng-model="name" />
+        <input type="file" class="form-control" id="Cover" placeholder="Cover" required="" fileread="cover" />
+        <input type="text" class="form-control" id="File" required="" ng-model="song" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="sendData()">Add</button>
       </form>
-
     </div>
   </div>
