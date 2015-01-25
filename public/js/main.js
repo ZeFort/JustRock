@@ -4,7 +4,8 @@ var app = angular.module("app", ['ngRoute']).config(function($routeProvider){
 					templateUrl:'../template/index.html'
 				})
 				.when('/listen',{
-					templateUrl: '../template/listen.html'
+					templateUrl: '../template/listen.html',
+					controller: 'ToggleController'
 				})
 				.when('/addSong',{
 					templateUrl: '../template/addsong.html'
@@ -30,6 +31,52 @@ app.controller("SongCreateController", function($scope, $http){
 	$scope.cover = '';
 	$scope.song = '';
 });
+
+app.controller('ToggleController', function($scope){
+	var open = false;
+	var openSearch = false;
+	$('.container_song').perfectScrollbar();
+
+	$scope.searchPanel = function(){
+		if (!openSearch){
+			$(".search_panel").css({
+				"visibility": "visible"
+			});
+			openSearch = true;
+		}else{
+			$(".search_panel").css({
+				"visibility": "hidden"
+			});
+			openSearch = false;
+		}
+	};
+
+	$scope.togglePanel = function() {
+		if (open){
+			$(".track_list").animate({right: '-=370'});
+			$(".glyphicon-chevron-right").addClass("glyphicon-chevron-left");
+			$(".glyphicon-chevron-right").removeClass("glyphicon-chevron-right");
+			$(".glyphicon-search").css({
+				"visibility": "hidden"
+			});
+			$(".glyphicon-arrow-left").css({
+				"visibility": "hidden"
+			});
+			open = false;
+		}else{
+			$(".track_list").animate({right:'+=370'});
+			$(".glyphicon-chevron-left").addClass("glyphicon-chevron-right");
+			$(".glyphicon-chevron-left").removeClass("glyphicon-chevron-left");
+			$(".glyphicon-search").css({
+				"visibility": "visible"
+			});
+			$(".glyphicon-arrow-left").css({
+				"visibility": "visible"
+			});
+			open = true;
+		}
+	};
+})
 
 app.directive("fileread", [function () {
     return {
